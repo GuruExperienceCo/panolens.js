@@ -24,7 +24,7 @@
 
 	var THREE__namespace = /*#__PURE__*/_interopNamespace(THREE);
 
-	const version="0.0.9";const dependencies={three:"^0.136"};
+	const version="0.0.11";const dependencies={three:"^0.136"};
 
 	/**
 	 * REVISION
@@ -8382,9 +8382,9 @@
 	     */
 	    checkSpriteInViewport ( sprite ) {
 	  
-	        this.camera.matrixWorldInverse.getInverse( this.camera.matrixWorld );
+	        this.camera.matrixWorldInverse.copy(  this.camera.matrixWorld  ).invert();
 	        this.cameraViewProjectionMatrix.multiplyMatrices( this.camera.projectionMatrix, this.camera.matrixWorldInverse );
-	        this.cameraFrustum.setFromMatrix( this.cameraViewProjectionMatrix );
+	        this.cameraFrustum.setFromProjectionMatrix( this.cameraViewProjectionMatrix );
 	  
 	        return sprite.visible && this.cameraFrustum.intersectsSprite( sprite );
 	  

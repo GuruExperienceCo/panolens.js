@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Geometry } from 'three/examples/jsm/deprecated/Geometry';
-import * as TWEEN$1 from '@tweenjs/tween.js';
+import * as TWEEN from '@tweenjs/tween.js';
 
 /**
  * REVISION
@@ -64,6 +64,7 @@ declare namespace DataImage {
     const Check: string;
     const ViewIndicator: string;
 }
+interface LoaderProgressHandler {}
 
 interface ImageLoader {
   load(
@@ -173,7 +174,7 @@ declare class Reticle extends THREE.Sprite {
 }
 
 declare class Infospot extends THREE.Sprite {
-  type: string;
+  type$: string;
   animated: boolean;
   isHovering: boolean;
   frustumCulled: boolean;
@@ -182,11 +183,11 @@ declare class Infospot extends THREE.Sprite {
   mode: number;
   container: HTMLElement | object;
   originalRaycast: THREE.Raycaster;
-  HANDLER_FOCUS: null | InfoSpotFocusHandler;
-  scaleUpAnimation: TWEEN.Tween;
-  scaleDownAnimation: TWEEN.Tween;
-  showAnimation: TWEEN.Tween;
-  hideAnimation: TWEEN.Tween;
+  // HANDLER_FOCUS: null | InfoSpotFocusHandler;
+  scaleUpAnimation: TWEEN.Tween<any>;
+  scaleDownAnimation: TWEEN.Tween<any>;
+  showAnimation: TWEEN.Tween<any>;
+  hideAnimation: TWEEN.Tween<any>;
 
   constructor(scale?: number, imageSrc?: string, animated?: boolean);
 
@@ -232,9 +233,9 @@ declare class Infospot extends THREE.Sprite {
 
   hide(delay?: number): void;
 
-  setFocusMethod(event?: { method: InfoSpotFocusHandler; }): void;
+  // setFocusMethod(event?: { method: InfoSpotFocusHandler; }): void;
 
-  focus(duration?: number, easing?: Easing): void;
+  // focus(duration?: number, easing?: Easing): void;
 
   dispose(): void;
 }
@@ -284,7 +285,7 @@ declare class Widget extends THREE.EventDispatcher {
 
   createMenu(): HTMLElement;
 
-  createCustomItem(options: WidgetCustomItemOptions): HTMLElement;
+  // createCustomItem(options: WidgetCustomItemOptions): HTMLElement;
 
   mergeStyleOptions(element: HTMLElement, options: CSSStyleDeclaration): HTMLElement;
 
@@ -307,11 +308,11 @@ declare class Panorama$1 extends THREE.Mesh {
   linkingImageURL: string;
   linkingImageScale: number;
   active: boolean;
-  infospotAnimation: TWEEN$1.Tween;
+  infospotAnimation: TWEEN.Tween<any>;
 
   constructor(geometry?: Geometry, material?: THREE.Material);
 
-  onClick(event?: PanoramaClickEvent): void;
+  onClick(event?: any): void;
 
   setContainer(data: HTMLElement | { container: HTMLElement; }): void;
 
@@ -369,7 +370,7 @@ declare class CubePanorama$1 extends Panorama$1 {
   dispose(): void;
 }
 
-declare class BasicPanorama extends CubePanorama {
+declare class BasicPanorama extends CubePanorama$1 {
 }
 
 interface VideoPanoramaOptions {
@@ -381,7 +382,7 @@ interface VideoPanoramaOptions {
   crossOrigin: string;
 }
 
-declare class VideoPanorama extends Panorama {
+declare class VideoPanorama extends Panorama$1 {
   src: string;
   options: VideoPanoramaOptions;
   videoElement: HTMLVideoElement;
@@ -418,8 +419,8 @@ declare class VideoPanorama extends Panorama {
 
   getVideoElement(): HTMLVideoElement;
 }
-
-declare class GoogleStreetviewPanorama extends ImagePanorama {
+declare class GoogleStreetviewLoader {}
+declare class GoogleStreetviewPanorama extends ImagePanorama$1 {
   panoId: string;
   gsvLoader: GoogleStreetviewLoader;
   loadRequested: boolean;
@@ -439,7 +440,7 @@ declare class GoogleStreetviewPanorama extends ImagePanorama {
   reset(): void;
 }
 
-declare class LittlePlanet$1 extends ImagePanorama {
+declare class LittlePlanet$1 extends ImagePanorama$1 {
   size: number;
   ratio: number;
   EPS: number;
@@ -466,7 +467,7 @@ declare class LittlePlanet$1 extends ImagePanorama {
   addZoomDelta(delta: number): void;
 }
 
-declare class ImageLittlePlanet extends LittlePlanet {
+declare class ImageLittlePlanet extends LittlePlanet$1 {
   constructor(source: string, size?: number, ratio?: number);
 
   updateTexture(texture: THREE.Texture): void;
@@ -474,8 +475,8 @@ declare class ImageLittlePlanet extends LittlePlanet {
   dispose(): void;
 }
 
-declare class CameraPanorama extends Panorama {
-  media: Media;
+declare class CameraPanorama extends Panorama$1 {
+  media: Media$1;
   radius: number;
 
   constructor(constraints: MediaStreamConstraints);
@@ -700,8 +701,8 @@ declare class Viewer extends THREE.EventDispatcher {
   HANDLER_KEY_UP: (event?: KeyboardEvent) => any
   HANDLER_TAP: (event?: MouseEvent) => any
   OUTPUT_INFOSPOT: HTMLElement
-  tweenLeftAnimation: TWEEN$1.Tween
-  tweenUpAnimation: TWEEN$1.Tween
+  tweenLeftAnimation: TWEEN.Tween<any>
+  tweenUpAnimation: TWEEN.Tween<any>
   OrbitControls: OrbitControls
   DeviceOrientationControls: DeviceOrientationControls
   controls: [DeviceOrientationControls, OrbitControls]
@@ -734,9 +735,9 @@ declare class Viewer extends THREE.EventDispatcher {
 
   dispatchEventToChildren(event?: Event): void;
 
-  activateWidgetItem(index?: number, mode?: MODES): void;
+  // activateWidgetItem(index?: number, mode?: MODES): void;
 
-  enableEffect(mode: MODES): void;
+  // enableEffect(mode: MODES): void;
 
   disableEffect(): void;
 
@@ -800,9 +801,9 @@ declare class Viewer extends THREE.EventDispatcher {
 
   addReticle(): void;
 
-  tweenControlCenter(vector?: THREE.Vector3, duration?: number, easing?: Easing): void;
+  // tweenControlCenter(vector?: THREE.Vector3, duration?: number, easing?: Easing): void;
 
-  tweenControlCenterByObject(object?: THREE.Object3D, duration?: number, easing?: Easing): void;
+  // tweenControlCenterByObject(object?: THREE.Object3D, duration?: number, easing?: Easing): void;
 
   onWindowResize(windoWidth?: number, windowHeight?: number): void;
 
