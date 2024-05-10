@@ -10,7 +10,7 @@ document.getElementById("nav-search").addEventListener("keyup", function(event) 
 
     if (!search) {
         //no search, show all results
-        document.documentElement.removeAttribute(searchAttr);
+        document.documentElement.deleteAttribute(searchAttr);
         
         document.querySelectorAll("nav > ul > li:not(.level-hide)").forEach(function(elem) {
             elem.style.display = "block";

@@ -30,7 +30,7 @@ class CardboardEffect {
   
         var distortion = new THREE.Vector2( 0.441, 0.156 );
   
-        var geometry = new THREE.PlaneGeometry( 1, 1, 10, 20 ).removeAttribute( 'normal' ).toNonIndexed();
+        var geometry = new THREE.PlaneGeometry( 1, 1, 10, 20 ).deleteAttribute( 'normal' ).toNonIndexed();
   
         var positions = geometry.attributes.position.array;
         var uvs = geometry.attributes.uv.array;
