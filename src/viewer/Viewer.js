@@ -2056,8 +2056,8 @@ class Viewer extends THREE.EventDispatcher {
             const indicator = viewIndicatorDiv.querySelector( '#indicator' );
             const setIndicatorD = function () {
                 scope.radius = scope.viewIndicatorSize * 0.225;
-                scope.currentPanoAngle = scope.camera.rotation.y - THREE.Math.degToRad( 90 );
-                scope.fovAngle = THREE.Math.degToRad( scope.camera.fov ) ;
+                scope.currentPanoAngle = scope.camera.rotation.y - THREE.MathUtils.degToRad( 90 );
+                scope.fovAngle = THREE.MathUtils.degToRad( scope.camera.fov ) ;
                 scope.leftAngle = -scope.currentPanoAngle - scope.fovAngle / 2;
                 scope.rightAngle = -scope.currentPanoAngle + scope.fovAngle / 2;
                 scope.leftX = scope.radius * Math.cos( scope.leftAngle );
