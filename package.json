@@ -129,7 +129,7 @@
     "xmlhttprequest": "^1.8.0"
   },
   "dependencies": {
-    "three": "^0.136"
+    "three": "^0.164.1"
   },
   "jspm": {
     "files": [
