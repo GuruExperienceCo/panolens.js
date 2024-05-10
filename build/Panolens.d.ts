@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { Geometry } from 'three/examples/jsm/deprecated/Geometry';
 import * as TWEEN from '@tweenjs/tween.js';
 
+
+
 /**
  * REVISION
  * @module REVISION
@@ -64,13 +66,12 @@ declare namespace DataImage {
     const Check: string;
     const ViewIndicator: string;
 }
-interface LoaderProgressHandler {}
 
 interface ImageLoader {
   load(
     url: string,
     onLoad?: (image?: HTMLElement) => any,
-    onProgress?: LoaderProgressHandler,
+    onProgress?: (params: any) => any,
     onError?: (error?: any) => any,
   ): HTMLElement;
 }
@@ -79,7 +80,7 @@ interface TextureLoader {
   load(
     url: string,
     onLoad?: (texture?: THREE.Texture) => any,
-    onProgress?: LoaderProgressHandler,
+    onProgress?: (params: any) => any,
     onError?: (error?: any) => any,
   ): THREE.Texture;
 }
@@ -88,7 +89,7 @@ interface CubeTextureLoader {
   load(
     urls: string[],
     onLoad?: (texture?: THREE.Texture) => any,
-    onProgress?: LoaderProgressHandler,
+    onProgress?: (params: any) => any,
     onError?: (error?: any) => any,
   ): THREE.Texture;
 }
@@ -174,7 +175,7 @@ declare class Reticle extends THREE.Sprite {
 }
 
 declare class Infospot extends THREE.Sprite {
-  type$: string;
+  // type: string;
   animated: boolean;
   isHovering: boolean;
   frustumCulled: boolean;
@@ -183,7 +184,7 @@ declare class Infospot extends THREE.Sprite {
   mode: number;
   container: HTMLElement | object;
   originalRaycast: THREE.Raycaster;
-  // HANDLER_FOCUS: null | InfoSpotFocusHandler;
+  HANDLER_FOCUS: null | any;
   scaleUpAnimation: TWEEN.Tween<any>;
   scaleDownAnimation: TWEEN.Tween<any>;
   showAnimation: TWEEN.Tween<any>;
@@ -233,9 +234,9 @@ declare class Infospot extends THREE.Sprite {
 
   hide(delay?: number): void;
 
-  // setFocusMethod(event?: { method: InfoSpotFocusHandler; }): void;
+  setFocusMethod(event?: { method: any; }): void;
 
-  // focus(duration?: number, easing?: Easing): void;
+  focus(duration?: number, any?: any): void;
 
   dispose(): void;
 }
@@ -285,7 +286,7 @@ declare class Widget extends THREE.EventDispatcher {
 
   createMenu(): HTMLElement;
 
-  // createCustomItem(options: WidgetCustomItemOptions): HTMLElement;
+  createCustomItem(options: any): HTMLElement;
 
   mergeStyleOptions(element: HTMLElement, options: CSSStyleDeclaration): HTMLElement;
 
@@ -419,10 +420,10 @@ declare class VideoPanorama extends Panorama$1 {
 
   getVideoElement(): HTMLVideoElement;
 }
-declare class GoogleStreetviewLoader {}
+
 declare class GoogleStreetviewPanorama extends ImagePanorama$1 {
   panoId: string;
-  gsvLoader: GoogleStreetviewLoader;
+  gsvLoader: any;
   loadRequested: boolean;
 
   constructor(panoId: string, apiKey?: string);
@@ -735,9 +736,9 @@ declare class Viewer extends THREE.EventDispatcher {
 
   dispatchEventToChildren(event?: Event): void;
 
-  // activateWidgetItem(index?: number, mode?: MODES): void;
+  activateWidgetItem(index?: number, mode?: any): void;
 
-  // enableEffect(mode: MODES): void;
+  enableEffect(mode: any): void;
 
   disableEffect(): void;
 
@@ -801,9 +802,9 @@ declare class Viewer extends THREE.EventDispatcher {
 
   addReticle(): void;
 
-  // tweenControlCenter(vector?: THREE.Vector3, duration?: number, easing?: Easing): void;
+  tweenControlCenter(vector?: THREE.Vector3, duration?: number, any?: any): void;
 
-  // tweenControlCenterByObject(object?: THREE.Object3D, duration?: number, easing?: Easing): void;
+  tweenControlCenterByObject(object?: THREE.Object3D, duration?: number, any?: any): void;
 
   onWindowResize(windoWidth?: number, windowHeight?: number): void;
 
@@ -867,3 +868,4 @@ declare class Viewer extends THREE.EventDispatcher {
 }
 
 export { BasicPanorama, CONTROLS, CONTROL_BUTTONS, CameraPanorama, CubePanorama$1 as CubePanorama, CubeTextureLoader, DataImage, EmptyPanorama, GoogleStreetviewPanorama, ImageLittlePlanet, ImageLoader, ImagePanorama$1 as ImagePanorama, Infospot, LittlePlanet$1 as LittlePlanet, MODES$1 as MODES, Media$1 as Media, OUTPUTS, Panorama$1 as Panorama, REVISION, Reticle, THREE_REVISION, THREE_VERSION, TextureLoader, VERSION, VideoPanorama, Viewer, Widget };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGFub2xlbnMuZC50cyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIifQ==

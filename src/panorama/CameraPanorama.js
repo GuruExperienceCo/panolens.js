@@ -11,7 +11,7 @@ import * as THREE from 'three';
 class CameraPanorama extends Panorama {
     constructor( constraints ) {
         const radius = 5000;
-        const geometry = new THREE.SphereBufferGeometry( radius, 60, 40 );
+        const geometry = new THREE.SphereGeometry( radius, 60, 40 );
         const material = new THREE.MeshBasicMaterial( { visible: false });
     
         super(geometry, material);

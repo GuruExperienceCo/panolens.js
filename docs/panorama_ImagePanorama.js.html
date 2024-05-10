@@ -68,7 +68,7 @@ import * as THREE from 'three';
 class ImagePanorama extends Panorama {
     constructor( image, _geometry, _material ) {
         const radius = 5000;
-        const geometry = _geometry || new THREE.SphereBufferGeometry( radius, 60, 40 );
+        const geometry = _geometry || new THREE.SphereGeometry( radius, 60, 40 );
         const material = _material || new THREE.MeshBasicMaterial( { opacity: 0, transparent: true } );
         super(geometry, material);
 
