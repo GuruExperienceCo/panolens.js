@@ -866,4 +866,3 @@ declare class Viewer extends THREE.EventDispatcher {
 }
 
 export { BasicPanorama, CONTROLS, CONTROL_BUTTONS, CameraPanorama, CubePanorama$1 as CubePanorama, CubeTextureLoader, DataImage, EmptyPanorama, GoogleStreetviewPanorama, ImageLittlePlanet, ImageLoader, ImagePanorama$1 as ImagePanorama, Infospot, LittlePlanet$1 as LittlePlanet, MODES$1 as MODES, Media$1 as Media, OUTPUTS, Panorama$1 as Panorama, REVISION, Reticle, THREE_REVISION, THREE_VERSION, TextureLoader, VERSION, VideoPanorama, Viewer, Widget };
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGFub2xlbnMuZC50cyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiIifQ==
